@@ -12,29 +12,53 @@ $(function () {
   //Add event listener to th save button
   saveButton.on('click', function (e) {
    
-
+    e.preventDefault();
     //Selects the immediate textarea element to the save button
     var eventDescription = $(this).siblings('.description');   
 
-    //Get the user input and the respective id of the parent element to use it as a key in a local storage
+    //Get the user's input and the respective id of the parent element to use it as a key in a local storage
     var userActualValue = eventDescription.val();
     var uniqueId = eventDescription.parent().attr('id');
 
+    
     //Get user's input from the local storage using id
     var storeUserData = JSON.parse(localStorage.getItem(uniqueId)) || [];
 
     //Validate if the input already exists or if it is empty
     if (userActualValue.trim() === '' || storeUserData.some(function (obj) {
       return obj.userActualValue === userActualValue
+      
     })) {
-      e.preventDefault();
+      // e.preventDefault();
       return;
     }
 
     //Add new user's input and store in the updated array in local storage
     storeUserData.push({ id: uniqueId, userActualValue })
     localStorage.setItem(uniqueId, JSON.stringify(storeUserData))
+
+    
+    // eventDescription.val() ===localStorage.setItem(uniqueId, JSON.stringify(storeUserData))
+    // eventDescription.val(localStorage.getItem(uniqueId))
+    //  eventDescription.val()
+
+    // if(location.reload){
+    //   return userInput === eventDescription.val()
+
+    // }
+    
+
+  // window.onload
+
+// if (storeUserData>0){
+//   eventDescription.val(storeUserData[0])
+// }
+
   })
+
+
+  
+
 
   //A for loop over the length of the time block element
   //?? TimeBlock in the '#hour-9' takes the future class. why not changing??
