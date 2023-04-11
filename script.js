@@ -2,68 +2,49 @@
 //A function that runs after the browser has finished rendering all the elements
 $(function () {
 
-  //Declare variables and selects the DOM elements
+  //Declare variables and selects the DOM elements using JQuery
   var saveButton = $('.saveBtn')
-  var userInput = $('.description')
   var timeBlockEl = $('.time-block')
   var hourBlock = $('[data-hour]')
 
+  //Retrieves stored data from local storage
+  for (var i = 0; i < timeBlockEl.length; i++) {
+    var timeId = timeBlockEl[i].id
+    var storeUserData = localStorage.getItem(timeId)
+
+    //Check the availability of stored data under each time block and assign that value to the respective text area
+    if (storeUserData) {
+      $(timeBlockEl[i]).find('.description').val(storeUserData)
+    }
+  }
 
   //Add event listener to th save button
   saveButton.on('click', function (e) {
-   
+
     e.preventDefault();
     //Selects the immediate textarea element to the save button
-    var eventDescription = $(this).siblings('.description');   
+    var eventDescription = $(this).siblings('.description');
 
     //Get the user's input and the respective id of the parent element to use it as a key in a local storage
     var userActualValue = eventDescription.val();
-    var uniqueId = eventDescription.parent().attr('id');
+    var timeId = eventDescription.parent().attr('id');
 
-    
-    //Get user's input from the local storage using id
-    var storeUserData = JSON.parse(localStorage.getItem(uniqueId)) || [];
 
-    //Validate if the input already exists or if it is empty
-    if (userActualValue.trim() === '' || storeUserData.some(function (obj) {
-      return obj.userActualValue === userActualValue
-      
-    })) {
-      // e.preventDefault();
+    //Validate if the input is empty
+    if (!userActualValue) {
       return;
     }
 
-    //Add new user's input and store in the updated array in local storage
-    storeUserData.push({ id: uniqueId, userActualValue })
-    localStorage.setItem(uniqueId, JSON.stringify(storeUserData))
+    //Save user's input in local storage
+    localStorage.setItem(timeId, userActualValue)
 
-    
-    // eventDescription.val() ===localStorage.setItem(uniqueId, JSON.stringify(storeUserData))
-    // eventDescription.val(localStorage.getItem(uniqueId))
-    //  eventDescription.val()
-
-    // if(location.reload){
-    //   return userInput === eventDescription.val()
-
-    // }
-    
-
-  // window.onload
-
-// if (storeUserData>0){
-//   eventDescription.val(storeUserData[0])
-// }
+    eventDescription.val(userActualValue)
 
   })
 
-
-  
-
-
   //A for loop over the length of the time block element
-  //?? TimeBlock in the '#hour-9' takes the future class. why not changing??
-  for (var i = 0; i < timeBlockEl.length; i++) {      
-    
+  for (var i = 0; i < timeBlockEl.length; i++) {
+
     //Get the hour text value, and parse into the integer and convert it to 24 hour time format
     hourValue = parseInt(hourBlock.eq(i).text().match(/\d+/)[0]);
     if (hourBlock.eq(i).text().includes('PM') && hourValue !== 12) {
@@ -75,7 +56,7 @@ $(function () {
       timeBlockEl.eq(i).removeClass('past future')
       timeBlockEl.eq(i).addClass('present')
 
-    } else if (hourValue < dayjs().hour()) {  
+    } else if (hourValue < dayjs().hour()) {
       timeBlockEl.eq(i).removeClass('present future')
       timeBlockEl.eq(i).addClass('past')
 
