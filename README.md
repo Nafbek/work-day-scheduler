@@ -2,7 +2,7 @@
 
 ## Description
 
-This is the fifth homework project aimed at developing a simple work day scheduler where the user can enter their events and save them in local storage corresponding to the time block by clicking the save button. The application checks whether the user's input already exists and whether they are saving an empty input before saving it in local storage. Additionally, a logic that changes the behavior of each time block after comparing it with the current hour is used to indicate whether it is in the past, present, or future. The color red indicates past, while yellow and green represent the present and future times, respectively. The current day is displayed at the top of the calendar. Moreover, the app will persist the user's input even after the page refreshes.
+This is the fifth homework project aimed at developing a simple work day scheduler where the user can enter their events and save them in local storage corresponding to the time block by clicking the save button. The application checks whether the user is saving an empty input before saving it in local storage. Additionally, a logic that changes the behavior of each time block after comparing it with the current hour is used to indicate whether it is in the past, present, or future. The color red indicates past, while yellow and green represent the present and future times, respectively. The current day is displayed at the top of the calendar. Moreover, the app will persist the user's input even after the page refreshes.
 
 ## User Story
 
@@ -37,14 +37,16 @@ After opening the 'index.html' file in your preferred browser, you can use the d
 
 You can either double click on the file "Animation.gif" in the repository or on the follwing syntax link to view the animation of the animation that demonstrate the functionality of the application.
 
-
-![alt text](AnimationQuiz.gif)///////////////////////////////////////////////////////////////////////
-
+![alt text](Animation.gif)
 
 
 ## Credits
 
 I would like to thank Torres Juan, a tutor, for his help in clarifying my understanding of some concepts and for recommending the use of the siblings function in my code. I am also grateful to Phillip Clark for providing clear direction on how to simplify my code writing.
+
+Day.js (https://day.js.org/en/) library is used to set the date and time.
+
+
 
 ## License
 
