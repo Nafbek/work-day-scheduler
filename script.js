@@ -38,6 +38,7 @@ $(function () {
     //Save user's input in local storage
     localStorage.setItem(timeId, userActualValue)
 
+    //Update the value of the text area with new user's input
     eventDescription.val(userActualValue)
 
   })
