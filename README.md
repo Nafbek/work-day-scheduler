@@ -32,7 +32,9 @@ You can clone this particular repository (follow this link  https://github.com/N
 
 ## Usage
 
-After opening the 'index.html' file in your preferred browser, you can use the description text area to enter any events that you want to schedule for the day. Once you have entered your input, you can save it by clicking the save button on the right side of the text area. Your saved data will be stored in the local storage, which means you can access it even if you close and reopen the page. When you refresh the page, you will still be able to see your previous input in the text area. Additionally, the time blocks in the scheduler will change color depending on whether they are in the past, present, or future relative to the current time. 
+After opening the 'index.html' file in your preferred browser, you can use the description text area to enter any events that you want to schedule for the day. Once you have entered your input, you can save it by clicking the save button on the right side of the text area. Your saved data will be stored in the local storage, which means you can access it even if you close and reopen the page. 
+
+When you refresh the page, you will still be able to see your previous input in the text area. Additionally, the time blocks in the scheduler will change color depending on whether they are in the past, present, or future relative to the current time. Optionally, check the deployed application here https://nafbek.github.io/work-day-scheduler/ 
 
 
 You can either double click on the file "Animation.gif" in the repository or on the follwing syntax link to view the animation of the animation that demonstrate the functionality of the application.
@@ -45,7 +47,6 @@ You can either double click on the file "Animation.gif" in the repository or on 
 I would like to thank Torres Juan, a tutor, for his help in clarifying my understanding of some concepts and for recommending the use of the siblings function in my code. I am also grateful to Phillip Clark for providing clear direction on how to simplify my code writing.
 
 Day.js (https://day.js.org/en/) library is used to set the date and time.
-
 
 
 ## License

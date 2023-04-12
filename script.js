@@ -29,7 +29,6 @@ $(function () {
     var userActualValue = eventDescription.val();
     var timeId = eventDescription.parent().attr('id');
 
-
     //Validate if the input is empty
     if (!userActualValue) {
       return;
